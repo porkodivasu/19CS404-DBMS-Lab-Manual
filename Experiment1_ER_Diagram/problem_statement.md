@@ -46,27 +46,72 @@ Design a database for patient management, appointments, medical records, and bil
    - How you modeled prerequisites or billing.
 
 # ER Diagram Submission - Student Name
-
+NAME : PORKODI P
+REGISTER NUMBER : 212223060199
 ## Scenario Chosen:
-University / Hospital (choose one)
+Hospital 
 
 ## ER Diagram:
-![ER Diagram](er_diagram.png)
+![Screenshot (95)](https://github.com/user-attachments/assets/f16854f9-9c4f-400d-af1d-e503527e738a)
 
-## Entities and Attributes:
-- Entity1: Attributes
-- Entity2: Attributes
-...
 
-## Relationships and Constraints:
-- Relationship1 (Cardinality, Participation)
-- Relationship2 (Cardinality, Participation)
-...
+Here’s a step-by-step procedure of how this system operates based on the ER diagram:
 
-## Extension (Prerequisite / Billing):
-- Explain how you modeled prerequisites or billing.
+Step-by-Step Procedure
+Patient Registration:
 
-## Design Choices:
-Brief explanation of why you chose certain entities, relationships, and assumptions
+Patient provides basic details: PatientID, Name, Gender, DateOfBirth.
 
+Contact details like Address and Phone Number are also recorded.
+
+Doctor Details Entry:
+
+Each doctor has: DoctorID, Name, Specialization, and Address.
+
+Booking an Appointment:
+
+A patient books an appointment with a doctor.
+
+An Appointment record is created with:
+
+AppointmentID, Date, Time, Status
+
+Links to PatientID and DoctorID.
+
+Billing Generation:
+
+Once an appointment occurs, it generates a bill.
+
+A Billing record is created:
+
+BillID, BillDate, TotalAmount
+
+Linked to the AppointmentID.
+
+Payment Processing:
+
+The bill is paid by the patient.
+
+A Payment record is generated with:
+
+PaymentDate, AmountPaid, Status
+
+Links to the BillID.
+
+Entities and Relationships Summary:
+Entity	Attributes
+Patient	PatientID, Name, Gender, DateOfBirth
+Doctor	DoctorID, Name, Specialization, Address
+Appointment	AppointmentID, Date, Time, Status, Phone, Address
+Billing	BillID, BillDate, TotalAmount
+Payment	PaymentDate, AmountPaid, Status
+
+Relationships:
+
+Patient books Appointment (with Doctor).
+
+Appointment generates Billing.
+
+Billing paid by Payment.
 ## RESULT
+Thus, the Entity-Relationship (ER) Diagram have been created successfully.
