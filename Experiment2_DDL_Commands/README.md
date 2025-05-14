@@ -105,63 +105,96 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
 
-```sql
--- Paste your SQL code below for Question 1
+![Screenshot (110)](https://github.com/user-attachments/assets/f2a74190-e935-40dd-94ae-36bc2c3b1726)
+
+
+```
+CREATE TABLE Products(
+ProductID INTEGER,
+ProductName TEXT,
+Price REAL,
+Stock INTEGER
+);
 ```
 
 **Output:**
 
-![Output1](output.png)
+![Screenshot (111)](https://github.com/user-attachments/assets/0ce5b95a-0764-4e87-aecc-b1db39d8bdc2)
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+![Screenshot (112)](https://github.com/user-attachments/assets/fd19c14a-9d94-4c88-9d97-01fd316a8067)
 
-```sql
--- Paste your SQL code below for Question 2
+
+```
+INSERT INTO Books(ISBN ,           Title                   , Author      ,Publisher   ,Year)VALUES('978-1234567890'  ,'Data Science Essentials'  ,'Jane Doe'    ,'TechBooks'   ,2024);
 ```
 
 **Output:**
 
-![Output2](output.png)
+![Screenshot (113)](https://github.com/user-attachments/assets/3906b33d-3e3e-4346-9489-cf9199e17ba9)
+
+
 
 **Question 3**
----
--- Paste Question 3 here
 
-```sql
--- Paste your SQL code below for Question 3
+![Screenshot (114)](https://github.com/user-attachments/assets/1535ed3f-f207-4d75-8d29-f5c2cb882a7a)
+
+
+```
+CREATE TABLE Orders(
+OrderID INTEGER primary key,
+OrderDate DATE not NULL,
+CustomerID INTEGER ,
+foreign key (CustomerID)
+REFERENCES Customers(CustomerID)
+);
 ```
 
 **Output:**
 
-![Output3](output.png)
+![Screenshot (115)](https://github.com/user-attachments/assets/2438cb90-f406-4967-b6a3-fbb9ba569725)
+
 
 **Question 4**
----
--- Paste Question 4 here
 
-```sql
--- Paste your SQL code below for Question 4
+![Screenshot (116)](https://github.com/user-attachments/assets/b09dd139-f305-455c-909e-1324d4450d1c)
+
+
+```
+ALTER TABLE Customer
+ADD COLUMN birth_date timestamp;
 ```
 
 **Output:**
 
-![Output4](output.png)
+![Screenshot (117)](https://github.com/user-attachments/assets/3bcc2170-b6ef-4b10-b8f9-f8d086f82a90)
+
 
 **Question 5**
----
--- Paste Question 5 here
 
-```sql
--- Paste your SQL code below for Question 5
+![Screenshot (118)](https://github.com/user-attachments/assets/daa47960-ee3e-4cff-94dc-f287ab98be94)
+
+
+```
+CREATE TABLE ProjectAssignments(
+AssignmentID INTEGER primary key,
+EmployeeID INTEGER,
+ProjectID INTEGER,
+AssignmentDate DATE NOT NULL,
+foreign key (EmployeeID) REFERENCES Employees(EmployeeID),
+foreign key (ProjectID) REFERENCES Projects(ProjectID)
+
+);
+
 ```
 
 **Output:**
 
-![Output5](output.png)
+![Screenshot (119)](https://github.com/user-attachments/assets/d9fa2cf5-0959-4db3-8a5f-b33652058e34)
+
 
 **Question 6**
 ---
