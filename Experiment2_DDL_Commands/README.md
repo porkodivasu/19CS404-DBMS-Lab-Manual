@@ -197,64 +197,87 @@ foreign key (ProjectID) REFERENCES Projects(ProjectID)
 
 
 **Question 6**
----
--- Paste Question 6 here
 
-```sql
--- Paste your SQL code below for Question 6
+![Screenshot (128)](https://github.com/user-attachments/assets/f7b412f4-f65c-447e-bbf6-ae1395eb87a5)
+
+
+```
+ALTER TABLE employee
+RENAME column id to employee_id;
 ```
 
 **Output:**
 
-![Output6](output.png)
+![Screenshot (129)](https://github.com/user-attachments/assets/da88cd76-b3a3-4ba6-9789-bb5be9fc7a6c)
+
 
 **Question 7**
----
--- Paste Question 7 here
 
-```sql
--- Paste your SQL code below for Question 7
+![Screenshot (130)](https://github.com/user-attachments/assets/e0f7dd1a-99fd-4272-b1e8-e2729a1c5c06)
+
+
+```
+INSERT INTO Customers(CustomerID , Name ,         Address   ,    City     ,   ZipCode)VALUES('306'         ,'Diana Prince'  ,'Themyscira'        ,NULL,NULL),('307'         ,'Bruce Wayne'   ,'Wayne Mano'  ,'Gotham'      ,'10007'),('308',         'Peter Parker',  'Queens'                  ,NULL,'11375');
 ```
 
 **Output:**
 
-![Output7](output.png)
+![Screenshot (131)](https://github.com/user-attachments/assets/dbfd8f59-4201-4b65-b50b-eaa20aa45d7d)
+
 
 **Question 8**
----
--- Paste Question 8 here
 
-```sql
--- Paste your SQL code below for Question 8
+![Screenshot (132)](https://github.com/user-attachments/assets/8e3ccd34-ae8c-407c-a537-f874fc0c452c)
+
+
+```
+CREATE TABLE contacts(
+contact_id INTEGER primary key,
+first_name TEXT not NULL,
+last_name TEXT not NULL,
+email TEXT,
+phone TEXT not NULL CHECK(LENGTH(phone)>=10)
+);
 ```
 
 **Output:**
 
-![Output8](output.png)
+![Screenshot (133)](https://github.com/user-attachments/assets/4a329bb0-53f2-4c0e-bdad-df85b4d2ddb5)
+
 
 **Question 9**
----
--- Paste Question 9 here
 
-```sql
--- Paste your SQL code below for Question 9
+![Screenshot (134)](https://github.com/user-attachments/assets/e921e008-80bc-4c78-97f6-314ade3b6457)
+
+
+```
+CREATE TABLE Products(
+ProductID primary key,
+ProductName NOT NULL,
+Price real CHECK(Price>0), 
+Stock integer CHECK(Stock>=0) 
+);
 ```
 
 **Output:**
 
-![Output9](output.png)
+![Screenshot (135)](https://github.com/user-attachments/assets/a12647c4-5d7f-4ff4-b0e3-bcd20b7eae5c)
+
 
 **Question 10**
----
--- Paste Question 10 here
 
-```sql
--- Paste your SQL code below for Question 10
+![Screenshot (136)](https://github.com/user-attachments/assets/ced539d7-6203-4d70-8e9d-f2d6a0e0e39f)
+
+
+```
+INSERT INTO Books(ISBN, Title, Author, Publisher, YearPublished)
+SELECT ISBN, Title, Author, Publisher, YearPublished FROM Out_of_print_books;
 ```
 
 **Output:**
 
-![Output10](output.png)
+![Screenshot (137)](https://github.com/user-attachments/assets/a95ad92a-1225-4fdc-a343-cd4fe7b23713)
+
 
 
 ## RESULT
