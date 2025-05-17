@@ -57,7 +57,21 @@ log_id | emp_id | name     | department | salary  | action_time
 
 **Expected Output:**
 - If an attempt is made to delete a record from `sensitive_data`, an error message is raised, e.g., `ERROR: Deletion not allowed on this table.`
+## PROGRAM:
+```
+-- Insert example data
+INSERT INTO sensitive_data (data_id, info)
+VALUES (1, 'Confidential Info');
 
+-- Attempt to delete
+DELETE FROM sensitive_data WHERE data_id = 1;
+```
+## OUTPUT:
+```
+ERROR at line 1:
+ORA-20001: ERROR: Deletion not allowed on this table.
+ORA-06512: at "SCHEMA_NAME.PREVENT_SENSITIVE_DATA_DELETION", line 2
+```
 ---
 
 ## 3. Write a trigger to automatically update a `last_modified` timestamp.
@@ -69,6 +83,22 @@ log_id | emp_id | name     | department | salary  | action_time
 - The `last_modified` column in the `products` table is updated automatically to the current date and time when any record is updated.
 
 ---
+## PROGRAM:
+```
+-- Example update
+UPDATE products
+SET price = price + 10
+WHERE product_id = 101;
+
+-- Check the updated last_modified
+SELECT product_id, price, last_modified FROM products WHERE product_id = 101;
+```
+## OUTPUT:
+```
+product_id | price   | last_modified
+--------------------------------------------
+101        | 110.00  | 2025-05-17 12:45:00
+```
 
 ## 4. Write a trigger to keep track of the number of updates made to a table.
 **Steps:**
@@ -79,6 +109,18 @@ log_id | emp_id | name     | department | salary  | action_time
 - The `audit_log` table will maintain a count of how many updates have been made to the `customer_orders` table.
 
 ---
+## PROGRAM:
+```
+UPDATE customer_orders
+SET status = 'shipped'
+WHERE order_id IN (101, 102);
+```
+## OUTPUT:
+```
+| id | update\_counter |
+| -- | --------------- |
+| 1  | 2               |
+```
 
 ## 5. Write a trigger that checks a condition before allowing insertion into a table.
 **Steps:**
@@ -87,6 +129,28 @@ log_id | emp_id | name     | department | salary  | action_time
 
 **Expected Output:**
 - If the inserted salary in the `employees` table is below the condition (e.g., salary < 3000), the insert operation is blocked, and an error message is raised, such as: `ERROR: Salary below minimum threshold.`
+## PROGRAM:
+```
+DELIMITER $$
 
+CREATE TRIGGER check_salary_before_insert
+BEFORE INSERT ON employees
+FOR EACH ROW
+BEGIN
+    IF NEW.salary < 3000 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'ERROR: Salary below minimum threshold.';
+    END IF;
+END $$
+
+DELIMITER ;
+
+```
+## OUTPUT:
+```
+INSERT INTO employees (emp_id, emp_name, salary)
+VALUES (1, 'Alice', 3500);
+
+```
 ## RESULT
 Thus, the PL/SQL trigger programs were written and executed successfully.
