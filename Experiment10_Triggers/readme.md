@@ -117,9 +117,9 @@ WHERE order_id IN (101, 102);
 ```
 ## OUTPUT:
 ```
-| id | update\_counter |
-| -- | --------------- |
-| 1  | 2               |
+audit_log table after the update:
+id	update_counter
+1	2
 ```
 
 ## 5. Write a trigger that checks a condition before allowing insertion into a table.
