@@ -32,6 +32,21 @@ END;
 
 **Expected Output:**
 - A new entry is added to the `employee_log` table each time a new record is inserted into the `employees` table.
+## PROGRAM:
+```
+-- Insert into employees
+INSERT INTO employees (emp_id, name, department, salary)
+VALUES (1, 'John Doe', 'HR', 50000.00);
+
+-- Check the employee_log
+SELECT * FROM employee_log;
+```
+## OUTPUT:
+```
+log_id | emp_id | name     | department | salary  | action_time
+---------------------------------------------------------------
+1      | 1      | John Doe | HR         | 50000.00| 2025-05-17 10:23:45
+```
 
 ---
 
